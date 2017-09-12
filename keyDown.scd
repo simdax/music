@@ -1,27 +1,18 @@
-{ |vars, a|
+{ |vars, mel|
+	var interface = "interface.scd".resolveRelative.load.value(vars);
 	{ |view, char|
-		var val;
-		switch (char)
-		{$4} {val = -1}
-		{$6} {val = 1}
-		{$ } {
-			val = 0;
-			vars.tempo;
-			vars.add_count;
-		}
-		{
-			val = nil
-		};
+		var val = interface.value(char);
+		val.postln;
 		if (vars.i == 0) {
 			vars.first_button = val;
 		};
 		if (val == 0) {
 			(instrument: \metronome).play;
 			if (vars.ticks.size == 4) {
-				a.go;
+				mel.go;
 			};
 		};
-		if (val == 1 || val == -1) {
+		if ((val == 1) || (val == -1)) {
 			if (vars.listening && val.isNumber) {
 				var error = false;
 				if (vars.buttons[vars.i] == 0) {
@@ -31,16 +22,16 @@
 					(degree: vars.notes[vars.i]).play;
 				} {
 					error = { LFSaw.ar(500, 1, 0.1) }.play;
-					defer({error.free}, 0.3);
+					{error.free}.defer(0.3);
 					vars.errors = vars.errors + 1;
 					vars.t.string_("oh non ! Tu as" + vars.errors + " erreurs");
-					a.again;
+					mel.again;
 				};
 				if (error == false && vars.notes[vars.i + 1].isNil) {
 					vars.success = vars.success + 1;
 					vars.t.string_("bravo ! Tu as" + vars.success + " success");
 					if (vars.success > 2) {vars.nb = vars.nb + 1; vars.success = 0;};
-					a.again;
+					mel.again;
 				} {
 					vars.i = vars.i + 1;
 				};
