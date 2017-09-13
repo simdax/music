@@ -15,7 +15,7 @@ add_count: { |self|
 },
 tempo: { |self|
 	var res = self.ticks[1..(self.ticks.size - 1)].mean;
-	self.u.string = ("tempo = " + (60 / res));
+	self.texts.tempo.string = ("tempo = " + (60 / res));
 	res;
 },
 variance: { |self|

@@ -9,7 +9,7 @@
 			vars.i = 0;
 			vars.notes = [];
 			vars.durs = [];
-			vars.t.string_("ecoute");
+			vars.texts.instructions.string_("ecoute");
 			Pfset({},
 				Pbind(
 					\amp, 0.5,
@@ -22,7 +22,7 @@
 				),
 				{
 					vars.listening = true;
-					{vars.t.string_("reproduis")}.defer;
+					{vars.texts.instructions.string_("reproduis")}.defer;
 					vars.buttons = intervalles.(vars.notes);
 			}).play
 		},
