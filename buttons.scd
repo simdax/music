@@ -16,9 +16,9 @@ var a = { |array|
 	}
 };
 //tests
-a.([2]).postln;
-a.([2, 2]).postln;
-a.([2, 2, 1]).postln;
-a.([1, 2, 2, 1]).postln;
+// a.([2]).postln;
+// a.([2, 2]).postln;
+// a.([2, 2, 1]).postln;
+// a.([1, 2, 2, 1]).postln;
 a;
 )

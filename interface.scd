@@ -11,7 +11,6 @@
 		} {
 			val = nil
 		};
-		char.postln;
 		val
 	}
 }
