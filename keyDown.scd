@@ -5,13 +5,19 @@
 		if (vars.i == 0) {
 			vars.first_button = val;
 		};
-		if (val == 0) {
+		case
+		{ val == 0 } {
 			(instrument: \metronome).play;
 			if (vars.ticks.size == 4) {
+				vars.launch_process;
 				mel.go;
 			};
-		};
-		if ((val == 1) || (val == -1)) {
+		}
+		{ val == 2 && vars.listening } {
+			vars.listening = false;
+			mel.go(false);
+		}
+		{(val == 1) || (val == -1)} {
 			if (vars.listening && val.isNumber) {
 				var error = false;
 				if (vars.buttons[vars.i] == 0) {
@@ -20,8 +26,7 @@
 				if (vars.buttons[vars.i] == val) {
 					(degree: vars.notes[vars.i]).play;
 				} {
-					error = { LFSaw.ar(500, 1, 0.1) }.play;
-					{error.free}.defer(0.3);
+					error = (instrument: \error).play;
 					vars.errors = vars.errors + 1;
 					vars.texts.score.string_("oh non ! Tu as" + vars.errors + " erreurs");
 					mel.again;
