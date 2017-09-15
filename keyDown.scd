@@ -7,7 +7,7 @@
 		};
 		case
 		{ val == 0 } {
-			(instrument: \metronome).play;
+			(instrument: \metronome, degree: vars.basse).play;
 			if (vars.ticks.size == 4) {
 				vars.launch_process;
 				mel.go;
@@ -29,6 +29,7 @@
 					error = (instrument: \error).play;
 					vars.errors = vars.errors + 1;
 					vars.texts.score.string_("oh non ! Tu as" + vars.errors + " erreurs");
+					if (vars.errors > 1) {vars.nb = vars.nb - 1; vars.errors = 0;};
 					mel.again;
 				};
 				if (error == false && vars.notes[vars.i + 1].isNil) {

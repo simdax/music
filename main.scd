@@ -13,7 +13,7 @@ w = FlowView()
 s.boot;
 s.latency = 0;
 "pdefs.scd".resolveRelative.load;
-Event.addParentType(\note, (dur: 0.1, amp: 0.5, scale: vars.scale));
+Event.addParentType(\note, (instrument: \harpsichord, dur: 0.1, amp: 0.5, scale: vars.scale));
 
 // EnvirGui(vars, 13, w, 400@300)
 // .putSpec(\max, [-10, 10, \lin, 1])

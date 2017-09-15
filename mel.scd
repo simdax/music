@@ -12,7 +12,7 @@
 				vars.i = 0;
 				vars.notes = [];
 				vars.durs = [];
-				"gen".postln;
+				vars.texts.instructions.string_("nouvelle melodie");
 			};
 			Pfset({},
 				Plazy {
@@ -41,7 +41,9 @@
 			}).play
 		},
 		again: { |self, time|
+			var basse = vars.basse;
 			vars.listening = false;
+			while{vars.basse == basse}{vars.basse = 6.rand};
 			{self.go}.defer(1 / TempoClock.tempo);
 		}
 	)

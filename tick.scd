@@ -24,13 +24,14 @@ launch_process: { |self|
 	}).play(AppClock)
 },
 add_count: { |self|
-	self.ticks = self.ticks.add(self.durations.next(self));
+	var dur = self.durations.next(self);
+	self.ticks = self.ticks.add(dur);
 	if (self.ticks.size > 5)
 	{
 		self.ticks = self.ticks[1..5];
 		TempoClock.tempo = 1 / self.tempo;
 	};
-	self.texts.heart_beat.string_(["BAM","kRoukn","taPPP","BllIng","puf","BOUM"].choose);
+	self.texts.heart_beat.string_(dur.asStringPrec(3));
 },
 tempo: { |self|
 	var res = self.ticks[1..(self.ticks.size - 1)].mean;
