@@ -1,5 +1,5 @@
-{ |vars, mel|
-	var interface = "interface.scd".resolveRelative.load.value(vars);
+{ |vars, mel, stats|
+	var interface = "interface.scd".resolveRelative.load.value(vars, stats);
 	{ |view, char|
 		var val = interface.value(char);
 		if (vars.i == 0) {
@@ -29,13 +29,21 @@
 					error = (instrument: \error).play;
 					vars.errors = vars.errors + 1;
 					vars.texts.score.string_("oh non ! Tu as" + vars.errors + " erreurs");
-					if (vars.errors > 1) {vars.nb = vars.nb - 1; vars.errors = 0;};
+					if (vars.errors > 1) {
+						vars.nb = vars.nb - 1;
+						vars.errors = 0;
+						vars.depart = 0;
+					};
 					mel.again;
 				};
 				if (error == false && vars.notes[vars.i + 1].isNil) {
 					vars.success = vars.success + 1;
 					vars.texts.score.string_("bravo ! Tu as" + vars.success + " success");
-					if (vars.success > 2) {vars.nb = vars.nb + 1; vars.success = 0;};
+					if (vars.success > 2) {
+						vars.nb = vars.nb + 1;
+						vars.success = 0;
+					};
+					vars.depart = vars.depart + vars.nb + 1;
 					mel.again;
 				} {
 					vars.i = vars.i + 1;

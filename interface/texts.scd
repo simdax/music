@@ -8,6 +8,7 @@
 		intro:	text.("Bats la mesure grace a la barre d'espace
 C'est toi qui choisis le tempo
 En meme temps, reproduis la melodie a l'aide des touches 4 et 6
+Quitte a tout moment en appuyant sur Q.
 "),
 		tempo: text.("tempo = "),
 		instructions: text.("en attente. Tape quatre temps pour commencer"),
