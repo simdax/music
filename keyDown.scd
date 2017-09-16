@@ -26,7 +26,7 @@
 				if (vars.buttons[vars.i] == val) {
 					(degree: vars.notes[vars.i]).play;
 				} {
-					vars.error;
+					vars.failed;
 					mel.again;
 				};
 				if (error == false && vars.notes[vars.i + 1].isNil) {

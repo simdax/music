@@ -5,31 +5,22 @@
 	};
 	// for stats
 	var keys = [\notes, \durs, \success, \errors, \nb, \basse, \ticks];
-	//mel
+	// mel
 	var mel;
 	var rythme;
 	var size = vars.size_mel;
 	mel = Array.rand(size + 1, -2, 2);
 	rythme = Array.rand(size + 1, 1, 2);
-	//final object
+	// final object
 	(
 		go: { |self, gen = true|
 			var range;
 			var arrivee;
-			if (vars.nb == size) {
-				"fini".post;
-				0.exit;
-			};
-			if ((vars.depart + vars.nb) > size) {
-				vars.depart = 0;
-			};
-			arrivee = vars.depart + vars.nb;
-			range = (vars.depart..arrivee);
 			vars.texts.instructions.string_("ecoute");
 			vars.i = 0;
-			vars.notes = mel[range];
-			vars.durs = rythme[range];
-			vars.texts.instructions.string_("nouvelle melodie");
+			arrivee = vars.depart + vars.nb;
+			vars.notes = mel[vars.depart..arrivee];
+			vars.durs = rythme[vars.depart..arrivee];
 			Pfset({},
 				Pbind(
 					\degree, Pseq(vars.notes),

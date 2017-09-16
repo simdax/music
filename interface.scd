@@ -3,9 +3,7 @@
 		var val;
 		switch (char)
 		{$q} {
-			Window.closeAll;
-			"record".my_load(stats);
-			s.quit;
+			vars.finish;
 		}
 		{$4} {val = -1}
 		{$6} {val = 1}

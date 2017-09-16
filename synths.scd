@@ -1,11 +1,4 @@
 (
-Pdef(\bob, Pbind(
-	\amp, 1.5,
-	\note, -20,
-	\dur, 1,
-	\legato, 1
-));
-
 SynthDef(\error, {
 	Out.ar(0,
 		LFSaw.ar(500, 0, 0.1) * EnvGen.kr(Env.perc, doneAction: 2)
