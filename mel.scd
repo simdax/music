@@ -8,7 +8,7 @@
 	//mel
 	var mel;
 	var rythme;
-	var size = 14;
+	var size = vars.size_mel;
 	mel = Array.rand(size + 1, -2, 2);
 	rythme = Array.rand(size + 1, 1, 2);
 	//final object
@@ -21,7 +21,7 @@
 				0.exit;
 			};
 			if ((vars.depart + vars.nb) > size) {
-				vars.depart = 0
+				vars.depart = 0;
 			};
 			arrivee = vars.depart + vars.nb;
 			range = (vars.depart..arrivee);
