@@ -1,7 +1,7 @@
 (
-//started: false,
 listening: false,
 last_round: false,
+decoupe: [0],
 errors: 0,
 success: 0,
 depart: 0,

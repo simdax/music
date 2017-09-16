@@ -10,7 +10,7 @@ s.waitForBoot({
 	EnvirGui(vars, 20);
 	window = FlowView()
 	.background_(colors.back)
-	.keyDownAction_("keyDown".my_load(vars,   mel, stats))
+	.keyDownAction_("keyDown".my_load(vars, mel, stats))
 	.onClose_({Pdef.removeAll})
 	.focus;
 	vars.texts = "interface/texts".my_load(vars, window, colors.front);

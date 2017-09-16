@@ -5,28 +5,20 @@
 	// for stats
 	var keys = [\notes, \durs, \success, \errors, \nb, \basse, \ticks];
 	// mel
-	var mel;
-	var rythme;
-	var size = vars.size_mel;
-	mel = Array.rand(size + 1, -2, 2);
-	rythme = Array.rand(size + 1, 1, 2);
+	vars.notes = Array.rand(vars.size_mel + 1, -2, 2);
+	vars.durs = Array.rand(vars.size_mel + 1, 1, 2);
 	// final object
 	(
-		go: { |self, gen = true|
+		go: { |self|
 			var range;
 			var arrivee;
 			vars.texts.instructions.string_("ecoute et arrete la melodie avec la barre d'espace");
-			vars.i = 0;
-			if (gen) {
-				arrivee = vars.depart + vars.size_mel;
-			} {
-				arrivee = vars.depart + vars.nb;
-			};
-			vars.notes = mel[vars.depart..arrivee];
-			vars.durs = rythme[vars.depart..arrivee];
-			vars.notes.postln;
-			vars.durs.postln;
-			Pdef(\mel).play;
+			if (vars.beg) {
+				Pdef(\mel).play;
+			}{
+				Pdef(\mel).stop;
+				vars.i = 0;
+			}
 		},
 		again: { |self, time|
 			var basse = vars.basse;

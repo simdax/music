@@ -8,9 +8,9 @@
 		case
 		{ val == 0 } {
 			(instrument: \metronome, degree: vars.basse).play;
-			if (vars.ticks.size == 4) {
+			mel.go;
+			if (vars.ticks.size == 0) {
 				vars.launch_process;
-				mel.go;
 			};
 		}
 		{ val == 2 && vars.listening } {
@@ -24,12 +24,12 @@
 					vars.buttons[vars.i] = vars.first_button;
 				};
 				if (vars.buttons[vars.i] == val) {
-					(degree: vars.notes[vars.i]).play;
+					(degree: vars.mel[vars.i]).play;
 				} {
 					vars.failed;
 					mel.again;
 				};
-				if (error == false && vars.notes[vars.i + 1].isNil) {
+				if (error == false && vars.mel[vars.i + 1].isNil) {
 					vars.succeded;
 					mel.again;
 				} {

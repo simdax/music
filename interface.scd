@@ -10,12 +10,7 @@
 		{$0} {val = 2}
 		{$ } {
 			val = 0;
-			if(vars.beg.not){
-				vars.beg = true;
-			} {
-				Pdef(\mel).stop;
-				vars.beg = false;
-			};
+			vars.beg = vars.beg.not;
 			vars.add_count;
 			vars.tempo;
 		}
