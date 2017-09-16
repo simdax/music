@@ -7,8 +7,8 @@
 			w.parent.close;
 			s.quit;
 		});
-		StaticText(w, 400@100)
-		.string_("Finis")
+		StaticText(w, 500@100)
+		.string_("Fini !")
 		.align_(\center)
 		.stringColor_(Color.red)
 		.font_(Font(Font.availableFonts.choose, 40));

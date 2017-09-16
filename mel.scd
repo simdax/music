@@ -1,5 +1,4 @@
 { |vars, stats|
-	var intervalles = "buttons.scd".resolveRelative.load;
 	var f = { |n, min, max|
 		(min..max).scramble.keep(n.asInt)
 	};
@@ -16,21 +15,16 @@
 		go: { |self, gen = true|
 			var range;
 			var arrivee;
-			vars.texts.instructions.string_("ecoute");
+			vars.texts.instructions.string_("ecoute et arrete la melodie avec la barre d'espace");
 			vars.i = 0;
-			arrivee = vars.depart + vars.nb;
+			if (gen) {
+				arrivee = vars.depart + vars.size_mel;
+			} {
+				arrivee = vars.depart + vars.nb;
+			};
 			vars.notes = mel[vars.depart..arrivee];
 			vars.durs = rythme[vars.depart..arrivee];
-			Pfset({},
-				Pbind(
-					\degree, Pseq(vars.notes),
-					\dur, Pseq(vars.durs),
-				),
-				{
-					vars.listening = true;
-					{vars.texts.instructions.string_("reproduis")}.defer;
-					vars.buttons = intervalles.(vars.notes);
-			}).play(quant: 1)
+			Pdef(\mel_inf, Pdef(\mel).repeat(inf)).play;
 		},
 		again: { |self, time|
 			var basse = vars.basse;
@@ -39,7 +33,7 @@
 			});
 			vars.listening = false;
 			while {vars.basse == basse} {vars.basse = 6.rand};
-			{self.go}.defer(1 / TempoClock.tempo);
+			{self.go(false)}.defer(1 / TempoClock.tempo);
 		}
 	)
 };

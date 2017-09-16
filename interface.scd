@@ -10,6 +10,12 @@
 		{$0} {val = 2}
 		{$ } {
 			val = 0;
+			if(vars.beg.not){
+				Pdef(\mel_inf).stop;
+				vars.beg = true;
+			} {
+				vars.beg = false;
+			};
 			vars.add_count;
 			vars.tempo;
 		}

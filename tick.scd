@@ -29,7 +29,7 @@ add_count: { |self|
 	if (self.ticks.size > 5)
 	{
 		self.ticks = self.ticks[1..5];
-		TempoClock.tempo = 1 / self.tempo;
+//		TempoClock.tempo = 1 / self.tempo;
 	};
 	self.texts.heart_beat.string_(dur.asStringPrec(3));
 },

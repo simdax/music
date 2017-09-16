@@ -1,10 +1,10 @@
 (
-started: false,
+//started: false,
 listening: false,
 last_round: false,
 errors: 0,
 success: 0,
-decoupe: [0],
+depart: 0,
 last_step: 0,
 failed: { |self|
 	(instrument: \error).play;

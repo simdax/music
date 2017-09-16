@@ -1,4 +1,4 @@
-(
+{
 var a = { |array|
 	var first;
 	var i = 0;
@@ -21,4 +21,4 @@ var a = { |array|
 // a.([2, 2, 1]).postln;
 // a.([1, 2, 2, 1]).postln;
 a;
-)
+}

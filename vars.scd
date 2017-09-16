@@ -1,7 +1,6 @@
 { |stats|
 	(
 		"tick".my_load ++
-		"err_succ".my_load ++
 		(
 			finish: {
 				"record".my_load(stats);
@@ -16,9 +15,9 @@
 			notes: [],
 			durs: [],
 			buttons: [],
-			depart: 0,
 			i: 0,
 			nb: 3,
+			beg: false,
 			size_mel: 11,
 			set_size: 4,
 			scale: [0, 2, 4, 7, 9],
@@ -26,6 +25,7 @@
 			max: 7,
 			rythmes: [1,2],
 			basse: 0,
-		);
+		) ++
+		"err_succ".my_load;
 	)
 }
