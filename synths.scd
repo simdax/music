@@ -4,28 +4,25 @@
 		(instrument: \harpsichord, dur: 0.1, amp: 0.5, scale: vars.scale)
 	);
 	Pdef(\mel,
-		Pfset({
-			vars.notes.postln;
-			vars.durs.postln;
-			//vars.nb = 0;
-		},
-		Plazy {
-			Pbind(
-				\degree, vars.notes.iter,
-				\dur, 1 / vars.durs.iter,
-				\finish, Pfunc{ |ev|
-					if (vars.beg){
-						vars.nb = vars.nb + 1;
-					};
-					ev.postln;
-				}
-			)
-		},
-		{
-			"prout".postln;
-			vars.listening = true;
-			{vars.texts.instructions.string_("reproduis")}.defer;
-			vars.buttons = intervalles.(vars.notes);
+		Pfset({},
+			Plazy{
+				Pbind(
+					\degree, Pseq(vars.notes, inf),
+					\dur, 1 / Pseq(vars.durs, inf),
+					\finish, Pfunc{ |ev|
+						if (vars.beg) {
+							vars.nb = vars.nb + 1;
+						};
+						ev.postln;
+						// return value
+						true;
+					}
+				)
+			},
+			{
+				vars.listening = true;
+				{vars.texts.instructions.string_("reproduis")}.defer;
+				vars.buttons = intervalles.(vars.notes);
 		})
 	).quant_(1);
 	SynthDef(\error, {

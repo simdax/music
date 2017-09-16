@@ -24,7 +24,9 @@
 			};
 			vars.notes = mel[vars.depart..arrivee];
 			vars.durs = rythme[vars.depart..arrivee];
-			Pdef(\mel_inf, Pdef(\mel).repeat(inf)).play;
+			vars.notes.postln;
+			vars.durs.postln;
+			Pdef(\mel).play;
 		},
 		again: { |self, time|
 			var basse = vars.basse;
