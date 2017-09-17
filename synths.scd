@@ -5,7 +5,7 @@
 	);
 	Pdef(\mel,
 		Pfset({
-			~mel = [];
+			vars.mel = [];
 			~io = thisThread.beats;
 		},
 		Plazy{

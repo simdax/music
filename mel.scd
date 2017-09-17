@@ -13,6 +13,7 @@
 			var range;
 			var arrivee;
 			vars.texts.instructions.string_("ecoute et arrete la melodie avec la barre d'espace");
+			vars.beg.postln;
 			if (vars.beg) {
 				Pdef(\mel).play;
 			}{
@@ -25,6 +26,7 @@
 			keys.do({ |k|
 				stats[k] = stats[k].add(vars[k]);
 			});
+			vars.beg = true;
 			vars.listening = false;
 			while {vars.basse == basse} {vars.basse = 6.rand};
 			{self.go(false)}.defer(1 / TempoClock.tempo);
