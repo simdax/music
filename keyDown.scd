@@ -1,5 +1,5 @@
 { |vars, mel, stats|
-	var interface = "interface.scd".resolveRelative.load.value(vars, stats);
+	var interface = "interface".my_load(vars, stats);
 	{ |view, char|
 		var val = interface.value(char);
 		if (vars.i == 0) {

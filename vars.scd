@@ -2,9 +2,6 @@
 	(
 		"tick".my_load ++
 		(
-			finish: {
-				"record".my_load(stats);
-			},
 			please_wait:{ |self|
 				self.texts.instructions.string_("attends avant de taper comme un bourrin");
 				{
@@ -19,6 +16,7 @@
 			j: 0,
 			nb: 0,
 			beg: false,
+			man: false,
 			size_mel: 11,
 			set_size: 4,
 			scale: [0, 2, 4, 7, 9],

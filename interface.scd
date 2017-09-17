@@ -3,8 +3,10 @@
 		var val;
 		switch (char)
 		{$q} {
-			vars.finish;
+			Pdef(\mel).stop;
+			vars.state_manager.state(\menu);
 		}
+		{$m} {vars.man = vars.man.not}
 		{$4} {val = -1}
 		{$6} {val = 1}
 		{$0} {val = 2}

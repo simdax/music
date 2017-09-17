@@ -26,7 +26,7 @@
 			{vars.texts.instructions.string_("reproduis")}.defer;
 			vars.buttons = intervalles.(vars.mel);
 		})
-	).quant_(1);
+	);
 	SynthDef(\error, {
 		Out.ar(0,
 			LFSaw.ar(500, 0, 0.1) * EnvGen.kr(Env.perc, doneAction: 2)

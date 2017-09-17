@@ -11,7 +11,7 @@ En meme temps, reproduis la melodie a l'aide des touches 4 et 6
 Quitte a tout moment en appuyant sur Q.
 "),
 		tempo: text.("tempo = "),
-		instructions: text.("en attente. Tape quatre temps pour commencer"),
+		instructions: text.("en attente. barre d'espace pour commencer"),
 		score: text.("score"),
 		heart_beat: text.("tiens le rythme bebe!"),
 	);
