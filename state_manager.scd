@@ -5,6 +5,9 @@
 			self.states[state].value(self);
 			window.reflowAll;
 		},
+		last_round: {
+			window.background_(colors.alert);
+		},
 		states: (
 			menu: { |self|
 				var button = Button(window, 50@50);
@@ -19,7 +22,11 @@
 					options.zone.remove;
 					self.state(\game);
 				};
-				window.background_(colors.menu);
+				window
+				.background_(colors.menu)
+				.keyDownAction_{
+					window.view.parent.destroy;
+				};
 				button.action = action;
 			},
 			game: { |self|

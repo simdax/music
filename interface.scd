@@ -6,7 +6,10 @@
 			Pdef(\mel).stop;
 			vars.state_manager.state(\menu);
 		}
-		{$m} {vars.man = vars.man.not}
+		{$m} {
+			vars.man = vars.man.not;
+			vars.texts.man.string = "mode manuel : " + vars.man;
+		}
 		{$4} {val = -1}
 		{$6} {val = 1}
 		{$0} {val = 2}
