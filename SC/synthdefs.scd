@@ -1,6 +1,6 @@
 {
-	SynthDef(\error, {
-		Out.ar(0,
+	SynthDef(\error, { | out = 1 |
+		Out.ar(out,
 			LFSaw.ar(500, 0, 0.1) * EnvGen.kr(Env.perc, doneAction: 2)
 		);
 	}).add;
@@ -11,9 +11,9 @@
 		snd = snd * env;
 		Out.ar(out, Pan2.ar(snd, pan));
 	}).add;
-	SynthDef(\metronome, { |freq = 440, amp|
+	SynthDef(\metronome, { |out = 1, freq = 440, amp|
 		var nb = 10;
-		Out.ar(0,
+		Out.ar(out,
 			Klang.ar(`[
 				Array.fill(nb, {|x| 1.4 ** x }) + freq,
 				Array.fill(nb, {|x| 3 ** x.neg })
@@ -22,3 +22,5 @@
 		);
 	}).add;
 }
+
+play{SinOsc.ar(440, 0, 6)}
