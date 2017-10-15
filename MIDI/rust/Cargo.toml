@@ -1,0 +1,7 @@
+[package]
+name = "testMidi"
+version = "0.1.0"
+authors = ["simdax <simoncornaz@gmail.com>"]
+
+[dependencies]
+midir = "0.4.0"
