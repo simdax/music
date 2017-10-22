@@ -1,9 +1,10 @@
 { |midiout|
+	var rhythmGen = "generateRhythm.scd".loadRelative[0];
 	var pdef, touchs;
 	var taille = 8;
 	~index = 0;
 	~notes   = Array.fill(taille, {4.rand});
-	~rythmes = Array.fill(taille, {rrand(1, 2)});
+	~rythmes = rhythmGen(3);
 	pdef = Pdef(\c, Pbind(
 		\type, \midi,
 		\midiout, midiout,
@@ -20,3 +21,4 @@
 	));
 	touchs = "touchs.scd".loadRelative[0].value(pdef, midiout);
 }
+n
