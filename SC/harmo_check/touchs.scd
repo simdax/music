@@ -1,21 +1,31 @@
 { |pdef, midiout|
+	var totalStop = {
+		Pdef(\mel).stop;
+		Pdef(\acc).stop;
+		midiout.allNotesOff(0);
+		midiout.allNotesOff(1);
+	};
+	var root = 48;
+	var algos = "algo.scd".loadRelative[0];
 	var note = PdegreeToKey(
-		Pfunc("algo.scd".loadRelative[0]), Scale.at(\major)
+		Pdefn(\algos, algos.turnAround), Scale.at(\major)
 	).iter;
-	var root = 49;
+	// return object
 	(
 		$c: {
-			pdef.play;
+			Pdef(\mel).play;
 		},
 		$q: {
-			pdef.stop;
-			Pdef(\acc).stop;
-			midiout.allNotesOff(0);
+			totalStop.();
+		},
+		$w: {
 			midiout.allNotesOff(1);
+			Pdef(\acc).stop;
 		},
 		$ : {
 			midiout.allNotesOff(1);
-			midiout.noteOn(1, root + note.next(), 10);
+			~basse = note.next();
+			midiout.noteOn(1, root + ~basse, 10);
 			Pdef(\acc).play
 		}
 	)
