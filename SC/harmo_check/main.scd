@@ -13,6 +13,7 @@ s.waitForBoot({
 	.keyDownAction_{ |self, k|
 		touchs[k].value;
 	}
-	.focus
+	.focus;
+	"./jack_connect.sh".unixCmd { |a, b| a.postln; };
 });
 )
