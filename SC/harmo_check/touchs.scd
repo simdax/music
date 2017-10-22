@@ -9,12 +9,14 @@
 		},
 		$q: {
 			pdef.stop;
+			Pdef(\acc).stop;
 			midiout.allNotesOff(0);
 			midiout.allNotesOff(1);
 		},
 		$ : {
 			midiout.allNotesOff(1);
 			midiout.noteOn(1, root + note.next(), 10);
+			Pdef(\acc).play
 		}
 	)
 }

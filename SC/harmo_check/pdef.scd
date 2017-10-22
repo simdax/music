@@ -4,7 +4,7 @@
 	var taille = 8;
 	~index = 0;
 	~notes   = Array.fill(taille, {4.rand});
-	~rythmes = rhythmGen(3);
+	~rythmes = rhythmGen.(3);
 	pdef = Pdef(\c, Pbind(
 		\type, \midi,
 		\midiout, midiout,
@@ -18,7 +18,13 @@
 			~index = ev.index % taille;
 			true
 		}
-	));
+	)).quant_(1);
+	Pdef(\acc, Pbind(
+		\type, \midi,
+		\midiout, midiout,
+		\chan, 2,
+		\dur, 0.25,
+		\degree, Pseq([0,2,4,2], inf)
+	)).quant_(1);
 	touchs = "touchs.scd".loadRelative[0].value(pdef, midiout);
 }
-n
