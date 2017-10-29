@@ -8,7 +8,7 @@
 	var root = 48;
 	var algos = "algo.scd".loadRelative[0];
 	var note = PdegreeToKey(
-		Pdefn(\algos, algos.turnAround), Scale.at(\major)
+		Pdefn(\algos, algos.main), Scale.at(\major)
 	).iter;
 	// return object
 	(

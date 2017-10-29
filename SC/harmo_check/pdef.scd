@@ -15,7 +15,8 @@
 		\dur, Pseq(~rythmes, inf) * rrand(0.25, 0.38),
 		\finish, Pfunc{ |ev|
 			~next = thisThread.seconds + ev.dur;
-			~index = ev.index % taille;
+			~index = ev.index % ~rythmes.size;
+			Console.log(ev.degree, 34, "-n");
 			true
 		}
 	)).quant_(1);
