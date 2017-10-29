@@ -16,5 +16,6 @@ s.waitForBoot({
 	"pdefs".my_load(vars);
 	"synthdefs".my_load;
 	vars.state_manager.state(\menu);
+	MIDI.connect();
 });
 )

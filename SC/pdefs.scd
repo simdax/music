@@ -1,7 +1,13 @@
 { |vars|
 	var intervalles = "buttons".my_load;
+	var midiout = MIDIOut(0);
+	midiout.latency = 0;
 	Event.addParentType(\note,
-		(instrument: \harpsichord, dur: 0.1, amp: 0.5, scale: vars.scale)
+		(
+			type: \midi,
+			midiout: midiout,
+			chan: 1,
+			instrument: \harpsichord, dur: 0.1, amp: 0.5, scale: vars.scale)
 	);
 	Pdef(\mel,
 		Pfset({

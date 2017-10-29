@@ -17,7 +17,6 @@ succeded: { |self|
 	if (self.last_round) {
 		self.decoupe.removeAt(0);
 		if (self.decoupe[1].isNil) {
-			"ioio".postln;
 			self.state_manager.state(\stats);
 		};
 	} {

@@ -15,7 +15,6 @@
 					'taille de la melodie': vars.size_mel
 				), 2, window)
 				.putSpec('taille de la melodie', [1, 15, \lin, 1])
-				//			.paramViews[0].bounds)
 				;
 				var action = {
 					button.remove;
@@ -25,7 +24,7 @@
 				window
 				.background_(colors.menu)
 				.keyDownAction_{
-					window.view.parent.destroy;
+					//window.view.parent.destroy;
 				};
 				button.action = action;
 			},
