@@ -13,8 +13,8 @@ s.waitForBoot({
 	.keyDownAction_{ |self, k|
 		touchs[k].value;
 	}.focus;
-	"./jack_connect.sh".unixCmd { |a, b|
-		"connection établie avec Jack".postln;
-	};
+//	"./jack_connect.sh".unixCmd { |a, b|
+//		"connection établie avec Jack".postln;
+//	};
 });
 )

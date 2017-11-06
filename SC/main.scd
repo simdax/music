@@ -7,6 +7,9 @@ var colors;
 var window;
 Window.closeAll;
 s.waitForBoot({
+	if (MIDIClient.initialized){}{
+i		MIDIClient.init
+	};
 	s.latency = 0;
 	window = FlowView(nil, 500@500);
 	colors = "interface/colors".my_load;
@@ -16,6 +19,6 @@ s.waitForBoot({
 	"pdefs".my_load(vars);
 	"synthdefs".my_load;
 	vars.state_manager.state(\menu);
-	MIDI.connect();
+	//JackMidi.connect();
 });
 )

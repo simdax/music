@@ -6,7 +6,7 @@
 		(
 			type: \midi,
 			midiout: midiout,
-			chan: 1,
+			chan: 0,
 			instrument: \harpsichord, dur: 0.1, amp: 0.5, scale: vars.scale)
 	);
 	Pdef(\mel,
@@ -19,6 +19,7 @@
 		Plazy{
 			var fin = if (vars.last_round, vars.decoupe[1], inf);
 			Pbind(
+				\chan, 1,
 				\degree, Pseq(vars.notes.rotate(vars.decoupe.last), inf),
 				\dur, 1 / Pseq(vars.durs.rotate(vars.decoupe.last), inf),
 				\finish, Pfunc{ |ev|

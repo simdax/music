@@ -1,6 +1,5 @@
-MIDI {
+JackMidi{
 	*check{
-		"ta grosse grosse mere".postln;
 		if (MIDIClient.initialized)
 		{}
 		{MIDIClient.init}
