@@ -1,3 +1,5 @@
+#!/usr/bin/env sclang
+
 (
 var touchs;
 var pdef;
